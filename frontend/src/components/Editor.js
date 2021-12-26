@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch) => ({
   onSubmit: (payload) => dispatch({ type: ITEM_SUBMITTED, payload }),
   onUnload: (payload) => dispatch({ type: EDITOR_PAGE_UNLOADED }),
   onUpdateField: (key, value) =>
-    dispatch({ type: UPDATE_FIELD_EDITOR, key, value }),
+    dispatch({ type: UPDATE_FIELD_EDITOR, key, value }), // dispatching something
 });
 
 class Editor extends React.Component {
