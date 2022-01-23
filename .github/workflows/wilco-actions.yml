@@ -12,7 +12,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: "15.x"
+          node-version: "16"
 
       - name: Start MongoDB
         uses: supercharge/mongodb-github-action@1.6.0
@@ -24,3 +24,18 @@ jobs:
         uses: trywilco/actions@main
         with:
           owner: ${{ github.repository_owner }}
+  Lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - name: Check out project
+        uses: actions/checkout@v2
+      - name: Lint code
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16'
+          cache: 'yarn'
+      - run: yarn install
+      - run: yarn lint
